@@ -5,14 +5,16 @@ class Storage {
     this.#items = items;
   }
   getItems() {
-    return [this.#items];
+    return this.#items;
   }
   addItem(newItem) {
     return this.#items.push(newItem);
   }
   removeItem(itemToRemove) {
     const indexToRemove = this.#items.indexOf(itemToRemove);
-    this.#items.splice(indexToRemove, 1);
+    if (indexToRemove != -1) {
+      this.#items.splice(indexToRemove, 1);
+    }
   }
 }
 const storage = new Storage(['Nanitoids', 'Prolonger', 'Antigravitator']);
